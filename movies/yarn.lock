@@ -1190,6 +1190,14 @@
   resolved "https://registry.npmmirror.com/@react-navigation/elements/download/@react-navigation/elements-1.2.1.tgz#86f19781c6f34a5c9dd25dca99915e0306f477d1"
   integrity sha1-hvGXgcbzSlyd0l3KmZFeAwb0d9E=
 
+"@react-navigation/native-stack@^6.2.5":
+  version "6.2.5"
+  resolved "https://registry.npmmirror.com/@react-navigation/native-stack/download/@react-navigation/native-stack-6.2.5.tgz#bfa19516cf434f831e6d4ba28d32b9bc5436d181"
+  integrity sha1-v6GVFs9DT4MebUuijTK5vFQ20YE=
+  dependencies:
+    "@react-navigation/elements" "^1.2.1"
+    warn-once "^0.1.0"
+
 "@react-navigation/native@^6.0.6":
   version "6.0.6"
   resolved "https://registry.npmmirror.com/@react-navigation/native/download/@react-navigation/native-6.0.6.tgz#0f2577358d73d7b21ff5b2455f0a2d51b1ad2837"

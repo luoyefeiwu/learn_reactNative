@@ -5,7 +5,7 @@ export default class HotList extends Component {
   render() {
     return (
       <View style={{marginTop: 50}}>
-        <Text>热门列表</Text>
+        <Text>热门列表1</Text>
       </View>
     );
   }
