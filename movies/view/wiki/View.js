@@ -83,7 +83,7 @@ export default class Wiki extends Component {
     });
   }
   handleItemClick() {
-    this.props.navigation.navigate('Hotlist', {id: '001'});
+    this.props.navigation.navigate('Settings');
   }
 }
 

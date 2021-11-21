@@ -15,7 +15,11 @@ export default class App extends Component {
             component={Home}
             options={({navigation}) => ({headerShown: false})}
           />
-          <Stack.Screen name="HotList" component={HotList} />
+          <Stack.Screen
+            name="HotList"
+            component={HotList}
+            options={({navigation}) => ({headerShown: false})}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );

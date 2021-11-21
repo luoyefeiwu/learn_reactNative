@@ -33,10 +33,7 @@ export default class Home extends Component {
           headerShown: false,
           //headerStyle: {height: 0},
         })}>
-        <Tab.Screen
-          name="Wiki"
-          // component={() => <Wiki navigate={this.props.navigation.navigate} />}
-          options={{tabBarBadge: 3, title: '首页'}}>
+        <Tab.Screen name="Wiki" options={{tabBarBadge: 3, title: '首页'}}>
           {props => <Wiki {...props} />}
         </Tab.Screen>
         <Tab.Screen
