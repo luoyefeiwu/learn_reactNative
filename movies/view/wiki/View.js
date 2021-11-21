@@ -3,22 +3,19 @@ import {
   Text,
   View,
   Image,
-  StyleSheet,
   Dimensions,
   StatusBar,
   TextInput,
   ScrollView,
   TouchableWithoutFeedback,
 } from 'react-native';
-import {NativeScreenNavigationContainer} from 'react-native-screens';
+import {connect} from 'react-redux';
+import styles from './style';
+import {getSetCategoriesAction} from './actionCreator';
 
-export default class Wiki extends Component {
+class Wiki extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      categories: [],
-    };
-    this.handleItemClick = this.handleItemClick.bind(this);
   }
 
   render() {
@@ -40,11 +37,13 @@ export default class Wiki extends Component {
         </View>
         <ScrollView style={styles.content}>
           <View style={styles.list}>
-            {this.state.categories.map((item, index) => {
+            {this.props.categories.map((item, index) => {
               return (
                 <TouchableWithoutFeedback
                   key={item.id}
-                  onPress={this.handleItemClick}>
+                  onPress={() =>
+                    this.props.navigation.navigate('Settings', {id: item.id})
+                  }>
                   <View style={[{width: itemWidth}, styles.item]}>
                     <Image
                       source={require('../../resource/images/4.jpg')}
@@ -76,57 +75,29 @@ export default class Wiki extends Component {
   bind() {
     let categories = [];
     for (let i = 0; i < 10; i++) {
-      categories.push({id: i, title: '京东' + i});
+      categories.push({id: i, title: '小米手环' + i});
     }
-    this.setState({
-      categories: categories,
-    });
+    this.props.setCategories(categories);
   }
-  handleItemClick() {
-    this.props.navigation.navigate('Settings');
-  }
+  // handleItemClick() {
+  //   this.props.navigation.navigate('Settings');
+  // }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: '#eee',
-  },
-  search: {
-    position: 'absolute',
-    left: 20,
-    right: 20,
-    height: 40,
-    lineHeight: 40,
-    borderRadius: 5,
-    paddingLeft: 10,
-    backgroundColor: '#fff',
-  },
-  content: {
-    flex: 1,
-    marginTop: 5,
-    marginRight: 10,
-    marginLeft: 10,
-    marginBottom: 5,
-    borderRadius: 5,
-    backgroundColor: 'white',
-  },
-  list: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  item: {
-    display: 'flex',
-  },
-  itemImg: {
-    marginTop: 10,
-    marginLeft: 5,
-    borderRadius: 20,
-  },
-  itemTitle: {
-    lineHeight: 30,
-    height: 30,
-    textAlign: 'center',
-  },
-});
+const manState = state => {
+  return {
+    categories: state.wiki.categories,
+  };
+};
+
+const mapDispath = dispath => {
+  return {
+    setCategories(data) {
+      //const action = {type: 'SET_CATEGORIES', data: data};
+      const action = getSetCategoriesAction(data);
+      dispath(action);
+    },
+  };
+};
+
+export default connect(manState, mapDispath)(Wiki);
