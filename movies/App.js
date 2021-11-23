@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Home from './view/home/View';
-import HotList from './view/hotlist/View';
+import HotList from './view/hot/View';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Provider} from 'react-redux';

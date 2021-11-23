@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Image, Text, View} from 'react-native';
+import {Image} from 'react-native';
 import Wiki from '../wiki/View';
-import Hotlist from '../hotlist/View';
+import Hotlist from '../hot/View';
 
 const Tab = createBottomTabNavigator();
 
