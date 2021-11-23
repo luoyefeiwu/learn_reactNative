@@ -3,6 +3,7 @@ export const getSetHostListAction = data => {
   return {
     type: SET_HOTLIST,
     data: data,
+    refreshing: true,
   };
 };
 

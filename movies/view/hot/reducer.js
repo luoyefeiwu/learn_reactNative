@@ -1,18 +1,19 @@
 import {SET_HOTLIST, SET_REFRESHING} from './actionTypes';
 const defaultState = {
-  hostList: [],
+  list: [],
   refreshing: false,
 };
 
 export default (state = defaultState, action) => {
   if (action.type === SET_HOTLIST) {
     return {
-      hostList: [...action.data],
+      list: [...state.list, ...action.data],
+      refreshing: false,
     };
   }
   if (action.type === SET_REFRESHING) {
     return {
-      refreshing: [...action.data],
+      refreshing: action.data,
     };
   }
   return state;

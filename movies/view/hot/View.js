@@ -5,21 +5,17 @@ import {connect} from 'react-redux';
 import {getSetHostListAction, getSetRefreshingAction} from './actionCreator';
 
 class Hot extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     list: [],
-  //     refreshing: false,
-  //   };
-  //   this.handleListRefresh = this.handleListRefresh.bind(this);
-  // }
+  constructor(props) {
+    super(props);
+    this.handleListRefresh = this.handleListRefresh.bind(this);
+  }
   render() {
     return (
       <FlatList
-        data={this.props.hotList}
+        data={this.props.list}
         keyExtractor={(item, index) => item.id}
         refreshing={this.props.refreshing}
-        // onRefresh={this.handleListRefresh}
+        onRefresh={this.handleListRefresh}
         renderItem={({item}) => {
           return (
             <View style={styles.item}>
@@ -29,7 +25,7 @@ class Hot extends Component {
               />
               <TouchableOpacity
                 onPress={() => {
-                  alert(item.title);
+                  // alert(item.title);
                 }}>
                 <View style={styles.info}>
                   <Text style={styles.title}>{item.title}</Text>
@@ -49,7 +45,7 @@ class Hot extends Component {
 
   getList() {
     let arr = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = this.props.list.length; i < this.props.list.length + 20; i++) {
       arr.push({
         id: i,
         title: '我是最帅的标题' + i,
@@ -58,10 +54,13 @@ class Hot extends Component {
     }
     this.props.setHostList(arr);
   }
+  handleListRefresh() {
+    this.getList();
+  }
 }
 const manState = state => {
   return {
-    hotList: state.hot.hotList,
+    list: state.hot.list,
     refreshing: state.hot.refreshing,
   };
 };
