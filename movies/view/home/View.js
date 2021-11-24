@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image} from 'react-native';
 import Wiki from '../wiki/View';
 import Hotlist from '../hot/View';
+import Map from '../map/View';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,6 +43,14 @@ export default class Home extends Component {
             title: '设置',
           }}>
           {props => <Hotlist {...props} />}
+        </Tab.Screen>
+        <Tab.Screen
+          name="map"
+          options={{
+            tabBarBadge: 2,
+            title: '附近美食',
+          }}>
+          {props => <Map {...props} />}
         </Tab.Screen>
       </Tab.Navigator>
     );
