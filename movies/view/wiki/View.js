@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import styles from './style';
-import {getSetCategoriesAction} from './actionCreator';
+import {getWikiInfo} from './actionCreator';
 
 class Wiki extends Component {
   constructor(props) {
@@ -69,19 +69,8 @@ class Wiki extends Component {
   }
 
   componentDidMount() {
-    this.bind();
+    this.props.getWikiInfo();
   }
-
-  bind() {
-    let categories = [];
-    for (let i = 0; i < 10; i++) {
-      categories.push({id: i, title: '小米手环' + i});
-    }
-    this.props.setCategories(categories);
-  }
-  // handleItemClick() {
-  //   this.props.navigation.navigate('Settings');
-  // }
 }
 
 const manState = state => {
@@ -92,10 +81,8 @@ const manState = state => {
 
 const mapDispath = dispath => {
   return {
-    setCategories(data) {
-      //const action = {type: 'SET_CATEGORIES', data: data};
-      const action = getSetCategoriesAction(data);
-      dispath(action);
+    getWikiInfo() {
+      dispath(getWikiInfo());
     },
   };
 };

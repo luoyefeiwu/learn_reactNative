@@ -25,7 +25,7 @@ class Hot extends Component {
               />
               <TouchableOpacity
                 onPress={() => {
-                  // alert(item.title);
+                  alert(item.desc);
                 }}>
                 <View style={styles.info}>
                   <Text style={styles.title}>{item.title}</Text>
@@ -49,7 +49,9 @@ class Hot extends Component {
       arr.push({
         id: i,
         title: '我是最帅的标题' + i,
-        desc: '我是最棒的描述哈哈哈哈哈哈哈哈哈哈你看到了没有嘻嘻嘻嘻嘻嘻' + i,
+        desc:
+          '我是最棒的描述我是最棒的描述我是最棒的描述我是最棒的描述我是最棒的描述' +
+          i,
       });
     }
     this.props.setHostList(arr);

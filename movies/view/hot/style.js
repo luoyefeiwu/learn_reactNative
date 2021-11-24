@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 const styles = StyleSheet.create({
   item: {
     display: 'flex',
@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 5,
     backgroundColor: '#fff',
+    height: 100,
   },
   itemImage: {
     height: 80,
@@ -19,8 +20,10 @@ const styles = StyleSheet.create({
   },
   info: {
     flex: 1,
+    // width: Dimensions.get('window').width - 120,
     display: 'flex',
     justifyContent: 'center',
+    marginRight: 100,
   },
   title: {
     lineHeight: 18,
