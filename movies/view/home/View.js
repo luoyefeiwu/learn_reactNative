@@ -36,12 +36,12 @@ export default class Home extends Component {
         </Tab.Screen>
         <Tab.Screen
           name="Settings"
-          // component={Hotlist}
+          //component={Hotlist}
           options={{
             tabBarBadge: 4,
             title: '设置',
           }}>
-          {props => <Wiki {...props} />}
+          {props => <Hotlist {...props} />}
         </Tab.Screen>
       </Tab.Navigator>
     );

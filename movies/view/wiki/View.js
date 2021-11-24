@@ -41,9 +41,9 @@ class Wiki extends Component {
               return (
                 <TouchableWithoutFeedback
                   key={item.id}
-                  onPress={() =>
-                    this.props.navigation.navigate('Settings', {id: item.id})
-                  }>
+                  onPress={() => {
+                    this.props.navigation.navigate('Settings', {id: item.id});
+                  }}>
                   <View style={[{width: itemWidth}, styles.item]}>
                     <Image
                       source={require('../../resource/images/4.jpg')}
@@ -92,6 +92,7 @@ const manState = state => {
 
 const mapDispath = dispath => {
   return {
+    getWikiInfo() {},
     setCategories(data) {
       //const action = {type: 'SET_CATEGORIES', data: data};
       const action = getSetCategoriesAction(data);
