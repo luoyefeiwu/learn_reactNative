@@ -43,8 +43,6 @@ export default class Home extends Component {
             title: '设置',
           }}>
           {props => <Hotlist {...props} />}
-<<<<<<< HEAD
-=======
         </Tab.Screen>
         <Tab.Screen
           name="map"
@@ -53,7 +51,6 @@ export default class Home extends Component {
             title: '附近美食',
           }}>
           {props => <Map {...props} />}
->>>>>>> 38f603bc19be34af6985d01e5f2bbbcd8ae8728d
         </Tab.Screen>
       </Tab.Navigator>
     );
