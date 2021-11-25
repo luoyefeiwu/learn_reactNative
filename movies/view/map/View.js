@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {WebView} from 'react-native-webview';
+import {StyleSheet} from 'react-native';
 
 export default class Map extends Component {
   render() {
     return (
-      <View>
-        <Text>hello word</Text>
-      </View>
+      <WebView source={{uri: 'https://m.baidu.com'}} style={styles.webview} />
     );
   }
 }
+
+const styles = StyleSheet.create({
+  webview: {
+    width: '100%',
+    height: '100%',
+  },
+});
