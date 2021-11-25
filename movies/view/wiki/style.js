@@ -28,9 +28,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   item: {
     display: 'flex',
+    flexDirection: 'column',
   },
   itemImg: {
     marginTop: 10,

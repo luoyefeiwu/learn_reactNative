@@ -5,3 +5,14 @@ export const getSetCategoriesAction = data => {
     data: data,
   };
 };
+
+export const getWikiInfo = () => {
+  return dispath => {
+    let categories = [];
+    for (let i = 0; i < 10; i++) {
+      categories.push({id: i, title: '小米手环' + i});
+    }
+    const action = getSetCategoriesAction(categories);
+    dispath(action);
+  };
+};
