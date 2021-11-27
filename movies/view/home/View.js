@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Image} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Wiki from '../wiki/View';
 import Hotlist from '../hot/View';
 import Map from '../map/View';
@@ -15,22 +15,29 @@ export default class Home extends Component {
     };
   }
   render() {
-    const homeImg = require('../../resource/images/home.png');
-    const likeImg = require('../../resource/images/like.png');
     return (
       <Tab.Navigator
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
-            if (route.name === 'Wiki') {
-              return <Image source={homeImg} style={{width: 20, height: 20}} />;
-            } else if (route.name === 'Settings') {
-              return <Image source={likeImg} style={{width: 20, height: 20}} />;
+            let iconName = '';
+            switch (route.name) {
+              case 'home':
+                iconName = 'home';
+                break;
+              case 'Wiki':
+                iconName = 'home';
+                break;
+              case 'Settings':
+                iconName = 'settings';
+                break;
+              default:
+                iconName = 'rocket';
             }
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
           headerShown: false,
-          //headerStyle: {height: 0},
         })}>
         <Tab.Screen name="Wiki" options={{tabBarBadge: 3, title: '首页'}}>
           {props => <Wiki {...props} />}
