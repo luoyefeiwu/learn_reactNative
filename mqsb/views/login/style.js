@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   itemImage: {
-    resizeMode: 'cover',
+    width: Dimensions.get('window').width,
   },
   title: {
     position: 'absolute',
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    backgroundColor: 'red',
   },
   password: {
     marginTop: 20,

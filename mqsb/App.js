@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Login from './views/login/View';
+import Home from './views/home/View';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Provider} from 'react-redux';
 import store from './store/';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {View, Text, Button} from 'react-native-elements';
 const Stack = createNativeStackNavigator();
 const RouteApp = () => {
   return (
@@ -14,11 +17,19 @@ const RouteApp = () => {
           component={Login}
           options={({navigation}) => ({headerShown: false})}
         />
-        {/* <Stack.Screen
-          name="HotList"
-          component={HotList}
-          options={({navigation}) => ({headerShown: false})}
-        /> */}
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={({navigation}) => ({
+            headerTitle: () => {
+              return <Text style={{color: '#fff', fontSize: 20}}>首页</Text>;
+            },
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#4378bc',
+            },
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -26,9 +37,11 @@ const RouteApp = () => {
 
 const App = props => {
   return (
-    <Provider store={store}>
-      <RouteApp />
-    </Provider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <RouteApp />
+      </Provider>
+    </SafeAreaProvider>
   );
 };
 
