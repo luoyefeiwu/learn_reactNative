@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
-import {View, Image, KeyboardAvoidingView} from 'react-native';
+import {
+  View,
+  Image,
+  KeyboardAvoidingView,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import {Input, Text, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from './styles';
 
 export default class Work extends Component {
   constructor(props) {
@@ -10,92 +17,53 @@ export default class Work extends Component {
   }
   render() {
     return (
-      <View style={{backgroundColor: 'white', flex: 1}}>
-        <View
-          style={{
-            backgroundColor: '#ff3333',
-            height: 60,
-            marginTop: 10,
-            marginLeft: 10,
-            marginRight: 10,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderRadius: 6,
-          }}>
-          <Icon
-            name="list"
-            size={20}
-            color={'white'}
-            style={{marginLeft: 10, flex: 1}}
-          />
-          <Text style={{fontSize: 16, color: 'white', flex: 9}}>
-            上报违规和签到
-          </Text>
+      <View style={styles.container}>
+        <View style={[styles.list, {backgroundColor: '#ff3333'}]}>
+          <Icon name="list" size={20} color={'white'} style={styles.leftIcon} />
+          <Text style={styles.content}>上报违规和签到</Text>
           <Icon
             name="angle-right"
             size={20}
             color={'white'}
-            style={{flex: 1}}
+            style={styles.rightIcon}
           />
         </View>
-        <View
-          style={{
-            backgroundColor: '#3894ff',
-            height: 60,
-            marginTop: 10,
-            marginLeft: 10,
-            marginRight: 10,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderRadius: 6,
-          }}>
+
+        <View style={[styles.list, {backgroundColor: '#3894ff'}]}>
           <Icon
-            name="list"
+            name="building"
             size={20}
             color={'white'}
-            style={{marginLeft: 10, flex: 1}}
+            style={styles.leftIcon}
           />
-          <Text style={{fontSize: 16, color: 'white', flex: 9}}>
-            责任单位管理
-          </Text>
+          <Text style={styles.content}>责任单位管理</Text>
           <Icon
             name="angle-right"
             size={20}
             color={'white'}
-            style={{flex: 1}}
+            style={styles.rightIcon}
           />
         </View>
-        <View
-          style={{
-            backgroundColor: '#00ccff',
-            height: 60,
-            marginTop: 10,
-            marginLeft: 10,
-            marginRight: 10,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderRadius: 6,
+        <TouchableOpacity
+          onPress={() => {
+            alert(111);
           }}>
-          <Icon
-            name="list"
-            size={20}
-            color={'white'}
-            style={{marginLeft: 10, flex: 1}}
-          />
-          <Text style={{fontSize: 16, color: 'white', flex: 8}}>我的排班</Text>
-          <Icon
-            name="angle-right"
-            size={20}
-            color={'white'}
-            style={{flex: 1}}
-          />
-        </View>
+          <View style={[styles.list, {backgroundColor: '#00ccff'}]}>
+            <Icon
+              name="calendar"
+              size={20}
+              color={'white'}
+              style={styles.leftIcon}
+            />
+            <Text style={styles.content}>我的排班</Text>
+            <Icon
+              name="angle-right"
+              size={20}
+              color={'white'}
+              style={styles.rightIcon}
+            />
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }

@@ -30,6 +30,19 @@ const RouteApp = () => {
             },
           })}
         />
+        {/* <Stack.Screen
+          name="Home"
+          component={Home}
+          options={({navigation}) => ({
+            headerTitle: () => {
+              return <Text style={{color: '#fff', fontSize: 20}}>首页</Text>;
+            },
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#4378bc',
+            },
+          })}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
