@@ -46,7 +46,7 @@ export default class Work extends Component {
         </View>
         <TouchableOpacity
           onPress={() => {
-            alert(111);
+            this.props.navigation.navigate('Scheduling', {id: 1});
           }}>
           <View style={[styles.list, {backgroundColor: '#00ccff'}]}>
             <Icon

@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {list: []};
   }
 
   render() {
@@ -33,7 +33,7 @@ export default class Home extends Component {
           headerShown: false,
         })}>
         <Tab.Screen name="work" options={{title: '工作面板'}}>
-          {props => <Work />}
+          {props => <Work {...props} />}
         </Tab.Screen>
         <Tab.Screen name="manage" options={{title: '违规管理'}}>
           {props => <Text>2</Text>}

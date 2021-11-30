@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './views/login/View';
 import Home from './views/home/View';
+import Scheduling from './views/scheduling/View';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Provider} from 'react-redux';
@@ -30,19 +31,21 @@ const RouteApp = () => {
             },
           })}
         />
-        {/* <Stack.Screen
-          name="Home"
-          component={Home}
+        <Stack.Screen
+          name="Scheduling"
+          component={Scheduling}
           options={({navigation}) => ({
             headerTitle: () => {
-              return <Text style={{color: '#fff', fontSize: 20}}>首页</Text>;
+              return (
+                <Text style={{color: '#fff', fontSize: 20}}>我的排班</Text>
+              );
             },
             headerTitleAlign: 'center',
             headerStyle: {
               backgroundColor: '#4378bc',
             },
           })}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
