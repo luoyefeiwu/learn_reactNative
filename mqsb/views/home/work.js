@@ -4,7 +4,7 @@ import {
   Image,
   KeyboardAvoidingView,
   StyleSheet,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import {Input, Text, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -29,22 +29,27 @@ export default class Work extends Component {
           />
         </View>
 
-        <View style={[styles.list, {backgroundColor: '#3894ff'}]}>
-          <Icon
-            name="building"
-            size={20}
-            color={'white'}
-            style={styles.leftIcon}
-          />
-          <Text style={styles.content}>责任单位管理</Text>
-          <Icon
-            name="angle-right"
-            size={20}
-            color={'white'}
-            style={styles.rightIcon}
-          />
-        </View>
-        <TouchableOpacity
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.props.navigation.navigate('UnitManage', {id: 1});
+          }}>
+          <View style={[styles.list, {backgroundColor: '#3894ff'}]}>
+            <Icon
+              name="building"
+              size={20}
+              color={'white'}
+              style={styles.leftIcon}
+            />
+            <Text style={styles.content}>责任单位管理</Text>
+            <Icon
+              name="angle-right"
+              size={20}
+              color={'white'}
+              style={styles.rightIcon}
+            />
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
           onPress={() => {
             this.props.navigation.navigate('Scheduling', {id: 1});
           }}>
@@ -63,7 +68,7 @@ export default class Work extends Component {
               style={styles.rightIcon}
             />
           </View>
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
       </View>
     );
   }
